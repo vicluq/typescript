@@ -90,9 +90,11 @@ if(DialogBox.type === DialogType.ERROR) {
   console.log("this is an error");
 } 
 
-// NOTE any type
+// NOTE any, unknown, never type
 // it gives the same flexibility of JS and doesn't apply type, which isn't the case
 // use in case there is no way of knowing the data types
+// !== from 'unknown' type, bc the unknown is a more strict type, bc it needs check to assign unknown stuff
+
 
 // NOTE UNIONS
 // gives more flexibility when working with types, eg. we can accept multiple types
@@ -152,4 +154,33 @@ function defineGenderAliases(name: string, gender: Gender) {
 }
 
 defineGender('Victoria', 'woman');
+defineGender('John', 'man');
 defineGender('Jules', 'non-binary');
+
+// We can asign objects/arrays types to the Aliases as a way to not repeat code
+// and everytime we want an object of such structure, just use the type
+
+
+// NOTE Function Related Types
+
+// Return Type (after params) => usually infered by TS, but we can assign it!
+function addSomeStuff(num1: number, num2: number): number {
+  return num1 + num2;
+}
+// void type => there is no return
+
+// Function as a Type =>
+let addFunction: Function;
+
+addFunction = addSomeStuff;
+addFunction(12, 14);
+
+// Isso aqui diz => pega uma função com 2 parametros number e retorna um number
+let specificAddFunction: (p1: number, p2: number) => number;
+// specificAddFunction = defineGender; // Error
+specificAddFunction = addSomeStuff;
+
+// Creating the same type but as an Alias
+type AddFunction = (p1: number, p2: number) => number;
+let specificAddFunctionWithTypes: AddFunction;
+// OBS: WE CAN PASS CALLBACKS AND DEFINE THEM AS WELL
