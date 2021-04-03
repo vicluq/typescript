@@ -1,0 +1,7 @@
+{
+  "name": "the-compiler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Victoria Luquet",
+  "license": "MIT"
+}

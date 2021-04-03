@@ -169,7 +169,7 @@ function addSomeStuff(num1: number, num2: number): number {
 }
 // void type => there is no return
 
-// Function as a Type =>
+// Function as a Type
 let addFunction: Function;
 
 addFunction = addSomeStuff;
