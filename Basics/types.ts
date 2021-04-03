@@ -89,3 +89,27 @@ console.log(DialogBox);
 if(DialogBox.type === DialogType.ERROR) {
   console.log("this is an error");
 } 
+
+// NOTE any type
+// it gives the same flexibility of JS and doesn't apply type, which isn't the case
+// use in case there is no way of knowing the data types
+
+// NOTE UNIONS
+// gives more flexibility when working with types, eg. we can accept multiple types
+// we do it using the pipe to separate the multiple types
+// issue: if we operate two union types, TS will complain because it doesn't analyse what is in it so it can be != stuff
+
+function combineStuff(value1: number | string | boolean, value2: number | string | boolean) {
+  // return value1 + value2; // it complains bc it doesn't really know what is which
+
+  // We must check most times if the types are similar
+  if(typeof value1 === 'string' && typeof value2 === 'string')
+    return value1 + value2;
+  
+  else if(typeof value1 === 'number' && typeof value2 === 'number')
+    return value1 + value2;
+  
+  else if(typeof value1 === 'boolean' && typeof value2 === 'boolean')
+    return value1 && value2;
+    // return value1 + value2; // TS knows it is bool do to our check so it complains
+}
