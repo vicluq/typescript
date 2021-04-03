@@ -140,3 +140,16 @@ function isAbleToDrink(name: string, ageRange: 'over-18' | 'below-18') {
 
 isAbleToDrink('Luke', 'below-18');
 isAbleToDrink('Victoria', 'over-18');
+
+// NOTE Type Aliases
+// It allows us to create custom types, store unions, etc.
+// The keywod 'type' allows us to create types by assigning them to a type
+
+type Gender = 'man' | 'woman' | 'non-binary';
+
+function defineGenderAliases(name: string, gender: Gender) {
+  return `${name} is a ${gender}`;
+}
+
+defineGender('Victoria', 'woman');
+defineGender('Jules', 'non-binary');
