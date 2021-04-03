@@ -3,7 +3,7 @@
  Browsers don't support typescript, so we must convert it when programming it, like with React
  The typescript compiler is the responsible for converting it
  Advantages => allows us to use next gen JS inside the browser, cause it will be compiled
-
+ !AUTOCOMPLETION
  tsc filaName.ts => compiles and generates the correct JS => the one to be imported in HTML files
 */
 
@@ -118,3 +118,25 @@ function combineStuff(value1: number | string | boolean, value2: number | string
 
 console.log(combineStuff(13, 17));
 console.log(combineStuff('13', 17));
+
+// NOTE Literal Types
+// We can literally assign a value as type to get a better code
+// Could've used a Union, but it's nice to use Literal Types in those cases
+
+function defineGender(name: string, gender: 'man' | 'woman' | 'non-binary') {
+  return `${name} is a ${gender}`;
+}
+
+defineGender('Victoria', 'woman');
+defineGender('Jules', 'non-binary');
+
+
+function isAbleToDrink(name: string, ageRange: 'over-18' | 'below-18') {
+  if(ageRange === 'below-18') 
+    return name + ' can\'t drink';
+  else 
+    return name + ' can drink';
+}
+
+isAbleToDrink('Luke', 'below-18');
+isAbleToDrink('Victoria', 'over-18');
