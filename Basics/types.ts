@@ -1,0 +1,91 @@
+/* 
+ What is typescript? it is Javascript with typification, better for development & debug
+ Browsers don't support typescript, so we must convert it when programming it, like with React
+ The typescript compiler is the responsible for converting it
+ Advantages => allows us to use next gen JS inside the browser, cause it will be compiled
+
+ tsc filaName.ts => compiles and generates the correct JS => the one to be imported in HTML files
+*/
+
+// Primitive Types => number, string, boolean
+// Complext types => object, arrays, tuple (array with fixed length and each pos has a type)
+
+// NOTE PRIMITIVE TYPES
+function addStuff(n1: number, n2: number) {
+  return n1 + n2;
+}
+
+// Assigning types mannualy => Only not-initialized variables
+let num1: string;
+num1 = "3.3";
+
+let num2: number;
+num2 = 2.7;
+
+// NOTE COMPLEX TYPES - Objects & Arrays
+let car: {
+  name: string;
+  fabYear: string;
+  seatAmount: number;
+};
+
+car = {
+  name: "HB20",
+  fabYear: "2016",
+  seatAmount: 5,
+};
+
+console.log(car.name);
+
+// Nested Objects & Arrays of some type
+let person: {
+  name: string;
+  age: number;
+  height: number;
+  car: [number, string]; // TUPLE
+  addresss: {
+    street: string;
+    num: number;
+    city: string;
+  }[];
+};
+
+// OBS: tuples are strict on sizes, but the push method is allowed to add more stuff, but assignments are considered erros
+
+const cars: string[] = ["red car", "blue car"];
+
+let human: [string, number];
+human = ['victoria', 19];
+console.log(human);
+
+// NOTE ENUMS - useful for REDUX ACTION TYPES & other types stuff in apps!
+
+// structure of an enum (resembles structs in C) => name it with an uppercase
+// If I don't assign a value to the enum, it enumerates from 0 to N. 
+// If I assign the first one with a number, the rest will follow that by incrementing the values
+enum DialogType {
+  WARNING = 'warning',
+  ERROR = 'error',
+  CONFIRM = 'confirm',
+}
+
+// Enums are kinda like classes that in the end results into objects...
+console.log(DialogType); // Objects
+
+let DialogBox: {
+  title: string,
+  code: number,
+  type: string, // I can put the DialogType.WARNING as the fixed type in here & that prevents errors in case the ENUM has multiple element types
+};
+
+DialogBox = {
+  title: 'You have deleted sensitive content',
+  code: 507,
+  type: DialogType.WARNING // using ENUM in practice
+};
+
+console.log(DialogBox);
+
+if(DialogBox.type === DialogType.ERROR) {
+  console.log("this is an error");
+} 
