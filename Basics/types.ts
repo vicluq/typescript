@@ -112,4 +112,9 @@ function combineStuff(value1: number | string | boolean, value2: number | string
   else if(typeof value1 === 'boolean' && typeof value2 === 'boolean')
     return value1 && value2;
     // return value1 + value2; // TS knows it is bool do to our check so it complains
+  else
+    return "not matching types";
 }
+
+console.log(combineStuff(13, 17));
+console.log(combineStuff('13', 17));
