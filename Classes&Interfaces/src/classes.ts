@@ -32,7 +32,7 @@ Ex: Class Product represents a product. it has methods to create, fetch, add to 
 * abstract classes
     - Allows to use abstract methods, meaning, methods that the children will be obligated to overwrite according to their needs
     - we must give the type of return and for params, so that the children classes follow this structure
-    - we don't need this thoug if it's just overwriting. we can simply overwrite
+    - we don't need this though if it's just overwriting. we can simply overwrite
 
 * Singleton pattern
     - Private constructors -> create only ONE element for the specific class. on able to create the instace whithin the class

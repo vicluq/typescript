@@ -41,3 +41,4 @@ const increaseAge: IncreaseAgeFunction = (person) => {
 
 console.log(human);
 console.log(increaseAge(human));
+
